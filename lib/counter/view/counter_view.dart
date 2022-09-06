@@ -18,10 +18,36 @@ class CounterView extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: BlocBuilder<CounterCubit,int>(
-          builder: (context,state){
-            return Text('Count: $state',style: theme.headline1,);
+        child: BlocBuilder<CounterCubit, int>(
+          builder: (context, state) {
+            return Text(
+              'Count: $state',
+              style: theme.headline1,
+            );
           },
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            FloatingActionButton(
+              key: const Key('counter_minus_fab'),
+              onPressed: () => context.read<CounterCubit>().decrementCount(),
+              child: const Icon(Icons.remove),
+            ),
+            FloatingActionButton(
+              key: const Key('counter_reset_fab'),
+              onPressed: () => context.read<CounterCubit>().resetCount(),
+              child: const Icon(Icons.refresh),
+            ),
+            FloatingActionButton(
+              key: const Key('counter_plus_fab'),
+              onPressed: () => context.read<CounterCubit>().incrementCount(),
+              child: const Icon(Icons.add),
+            ),
+          ],
         ),
       ),
     );

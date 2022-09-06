@@ -11,4 +11,7 @@ class CounterCubit extends Cubit<int> {
 
   //decrement one from state
   void decrementCount() => emit(state - 1);
+
+  //reset state
+  void resetCount() => emit(0);
 }
