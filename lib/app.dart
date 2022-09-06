@@ -8,9 +8,4 @@ import 'counter/view/counter_screen.dart';
 class Counter extends MaterialApp {
   /// {@macro app}
   const Counter({super.key}) : super(home: const CounterScreen());
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
 }
